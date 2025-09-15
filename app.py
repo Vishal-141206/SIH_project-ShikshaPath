@@ -17,7 +17,7 @@ FILES = {
     "pytorch_model.bin": "1ztNY9ELyLeT02ui5hyAEv1A9VqDcnMr6",
     "config.json": "12xVmdmMu0seNrJOe1WKo4T8_UQVZwhJk",
     "tokenizer.json": "1sGc2ah0XRi88YDraPhnP32z-1O9dwO30",
-    "tokenizer_config.json": "1ztNY9ELyLeT02ui5hyAEv1A9VqDcnMr6"
+    "tokenizer_config.json": "1g8ufnCYM92ZKVFv0a34yFq7ZVAt0xyNo"
 }
 
 def download_model():

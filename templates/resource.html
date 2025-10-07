@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shiksha Path — Resource Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="resource.css" />
+</head>
+<body>
+  <!-- <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <div class="brand-mark"></div>
+        <span>Shiksha Path</span>
+      </a> -->
+      <!-- <nav class="nav">
+        <a href="#skills">Govt Skills</a>
+        <a href="#courses">Free Courses</a>
+        <a href="#books">Free Books</a>
+      </nav> -->
+      <!-- <a href="#explore" class="btn btn-primary">Explore Now</a> -->
+    </div>
+  </header>
+
+  <main>
+    <section class="hero gradient-hero">
+      <div class="orb orb-accent"></div>
+      <div class="orb orb-primary"></div>
+      <div class="container hero-inner">
+        <div class="pill">
+          <span class="dot"></span>
+          100% free and official government resources
+        </div>
+        <h1 class="title gradient-text">Resource Hub</h1>
+        <p class="subtitle">Discover verified government portals for free skills, books, and courses. Learn, upskill, and advance your career.</p>
+
+        <div id="explore" class="search-wrap">
+          <div class="search-gradient">
+            <div class="search">
+              <svg width="20" height="20" viewBox="0 0 24 24" class="search-icon" aria-hidden="true">
+                <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5m-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z"/>
+              </svg>
+              <input type="text" placeholder="Search skills, books, courses..." aria-label="Search resources" />
+              <button class="btn btn-secondary" type="button">Clear</button>
+            </div>
+          </div>
+
+          <div class="filters">
+            <button class="chip chip-active">All</button>
+            <button class="chip">Govt Skills</button>
+            <button class="chip">Free Courses</button>
+            <button class="chip">Free Books</button>
+          </div>
+        </div>
+      </div>
+      <div class="hero-fade"></div>
+    </section>
+
+    <section id="skills" class="container section">
+      <div class="section-head">
+        <h2 class="section-title"><span class="icon-dot"></span>Govt Skills</h2>
+        <p class="section-sub">Government programs for hands-on skills, apprenticeships, and career services.</p>
+      </div>
+
+      <div class="grid">
+        <!-- PMKVY -->
+        <a class="card-outer">
+          <div class="card card-skills">
+            <div class="card-top">
+              <div>
+                <h3 class="card-title">PMKVY — Pradhan Mantri Kaushal Vikas Yojana</h3>
+                <p class="card-desc">Flagship skill development scheme by MSDE offering free short-term training and RPL.</p>
+              </div>
+              <span class="external" aria-hidden="true">↗</span>
+            </div>
+            <div class="tags">
+              <span class="tag tag-secondary">Official</span>
+              <span class="tag">free</span>
+              <span class="tag">skill</span>
+              <span class="tag">training</span>
+            </div>
+          </div>
+          <span class="card-link" aria-hidden="true"></span>
+          <span class="sr-only">Open PMKVY</span>
+        </a>
+        <script>
+          document.currentScript.previousElementSibling.addEventListener('click',()=>window.open('https://nsdcindia.org/pmkvy-overview','_blank'));
+        </script>
+
+        <!-- NAPS (same light colour as skills, no shadow) -->
+        <a class="card-outer">
+          <div class="card card-skills">
+            <div class="card-top">
+              <div>
+                <h3 class="card-title">Apprenticeship India (NAPS)</h3>
+                <p class="card-desc">National Apprenticeship Promotion Scheme — on-the-job training with stipends.</p>
+              </div>
+              <span class="external" aria-hidden="true">↗</span>
+            </div>
+            <div class="tags">
+              <span class="tag tag-secondary">Official</span>
+              <span class="tag">apprenticeship</span>
+              <span class="tag">stipend</span>
+            </div>
+          </div>
+          <span class="card-link" aria-hidden="true"></span>
+          <span class="sr-only">Open Apprenticeship India (NAPS)</span>
+        </a>
+        <script>
+          document.currentScript.previousElementSibling.addEventListener('click',()=>window.open('https://www.apprenticeshipindia.gov.in/','_blank'));
+        </script>
+
+        <!-- NCS -->
+        <a class="card-outer">
+          <div class="card card-skills">
+            <div class="card-top">
+              <div>
+                <h3 class="card-title">National Career Service (NCS)</h3>
+                <p class="card-desc">Career guidance, counselling, and job matching services from Ministry of Labour.</p>
+              </div>
+              <span class="external" aria-hidden="true">↗</span>
+            </div>
+            <div class="tags">
+              <span class="tag tag-secondary">Official</span>
+              <span class="tag">career guidance</span>
+              <span class="tag">jobs</span>
+            </div>
+          </div>
+          <span class="card-link" aria-hidden="true"></span>
+          <span class="sr-only">Open NCS</span>
+        </a>
+        <script>
+          document.currentScript.previousElementSibling.addEventListener('click',()=>window.open('https://www.ncs.gov.in/','_blank'));
+        </script>
+
+        <!-- Skill India Digital -->
+        <a class="card-outer">
+          <div class="card card-skills">
+            <div class="card-top">
+              <div>
+                <h3 class="card-title">Skill India Digital</h3>
+                <p class="card-desc">Government portal for skill programs, digital credentials, and verified opportunities.</p>
+              </div>
+              <span class="external" aria-hidden="true">↗</span>
+            </div>
+            <div class="tags">
+              <span class="tag tag-secondary">Official</span>
+              <span class="tag">digital credentials</span>
+              <span class="tag">official</span>
+            </div>
+          </div>
+          <span class="card-link" aria-hidden="true"></span>
+          <span class="sr-only">Open Skill India Digital</span>
+        </a>
+        <script>
+          document.currentScript.previousElementSibling.addEventListener('click',()=>window.open('https://www.skillindiadigital.gov.in/','_blank'));
+        </script>
+      </div>
+    </section>
+
+    <section id="courses" class="container section">
+      <div class="section-head">
+        <h2 class="section-title"><span class="icon-dot"></span>Free Courses</h2>
+        <p class="section-sub">University-grade MOOCs, virtual labs, and teacher training.</p>
+      </div>
+      <div class="grid">
+        <a class="card-outer" onclick="window.open('https://swayam.gov.in/','_blank')">
+          <div class="card card-courses">
+            <div class="card-top"><div><h3 class="card-title">SWAYAM</h3><p class="card-desc">MHRD initiative providing free online courses with optional certification.</p></div><span class="external">↗</span></div>
+            <div class="tags"><span class="tag tag-secondary">Official</span><span class="tag">mooc</span><span class="tag">certificate</span><span class="tag">university</span></div>
+          </div>
+        </a>
+        <a class="card-outer" onclick="window.open('https://nptel.ac.in/','_blank')">
+          <div class="card card-courses">
+            <div class="card-top"><div><h3 class="card-title">NPTEL</h3><p class="card-desc">IITs & IISc initiative offering free engineering, science, and humanities courses.</p></div><span class="external">↗</span></div>
+            <div class="tags"><span class="tag tag-secondary">Official</span><span class="tag">engineering</span><span class="tag">certificate</span></div>
+          </div>
+        </a>
+        <a class="card-outer" onclick="window.open('https://www.vlab.co.in/','_blank')">
+          <div class="card card-courses">
+            <div class="card-top"><div><h3 class="card-title">Virtual Labs</h3><p class="card-desc">Remote experimentation through interactive online laboratories.</p></div><span class="external">↗</span></div>
+            <div class="tags"><span class="tag tag-secondary">Official</span><span class="tag">labs</span><span class="tag">hands-on</span></div>
+          </div>
+        </a>
+        <a class="card-outer" onclick="window.open('https://diksha.gov.in/','_blank')">
+          <div class="card card-courses">
+            <div class="card-top"><div><h3 class="card-title">DIKSHA</h3><p class="card-desc">National platform for school and teacher training content, open and free.</p></div><span class="external">↗</span></div>
+            <div class="tags"><span class="tag tag-secondary">Official</span><span class="tag">teacher training</span><span class="tag">open</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="books" class="container section">
+      <div class="section-head">
+        <h2 class="section-title"><span class="icon-dot"></span>Free Books</h2>
+        <p class="section-sub">Open access repositories and national libraries for lifelong learning.</p>
+      </div>
+      <div class="grid">
+        <a class="card-outer" onclick="window.open('https://ndl.iitkgp.ac.in/','_blank')">
+          <div class="card card-books">
+            <div class="card-top"><div><h3 class="card-title">National Digital Library of India (NDLI)</h3><p class="card-desc">A vast repository of free books, articles, and learning resources.</p></div><span class="external">↗</span></div>
+            <div class="tags"><span class="tag tag-secondary">Official</span><span class="tag">books</span><span class="tag">research</span><span class="tag">open access</span></div>
+          </div>
+        </a>
+        <a class="card-outer" onclick="window.open('https://egyankosh.ac.in/','_blank')">
+          <div class="card card-books">
+            <div class="card-top"><div><h3 class="card-title">eGyanKosh (IGNOU)</h3><p class="card-desc">Open access repository of courseware and books from IGNOU.</p></div><span class="external">↗</span></div>
+            <div class="tags"><span class="tag tag-secondary">Official</span><span class="tag">books</span><span class="tag">oer</span></div>
+          </div>
+        </a>
+        <a class="card-outer" onclick="window.open('https://shodhganga.inflibnet.ac.in/','_blank')">
+          <div class="card card-books">
+            <div class="card-top"><div><h3 class="card-title">Shodhganga — INFLIBNET</h3><p class="card-desc">A reservoir of Indian theses and dissertations.</p></div><span class="external">↗</span></div>
+            <div class="tags"><span class="tag tag-secondary">Official</span><span class="tag">research</span><span class="tag">theses</span></div>
+          </div>
+        </a>
+        <a class="card-outer" onclick="window.open('https://bharatavani.in/','_blank')">
+          <div class="card card-books">
+            <div class="card-top"><div><h3 class="card-title">Bharatavani</h3><p class="card-desc">Government multilingual knowledge portal — dictionaries and literature.</p></div><span class="external">↗</span></div>
+            <div class="tags"><span class="tag tag-secondary">Official</span><span class="tag">multilingual</span><span class="tag">knowledge</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="container cta">
+      <div class="cta-inner">
+        <h3>Can’t find what you need?</h3>
+        <p>Tell us what you’re looking for and we’ll expand this hub with more official resources.</p>
+        <div class="cta-actions">
+          <a href="#explore" class="btn btn-primary">Search Again</a>
+          <a href="https://www.ncs.gov.in/Pages/ContactUs.aspx" target="_blank" rel="noreferrer" class="btn btn-secondary">Contact NCS</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Shiksha Path • Curated official government resources</p>
+      <div class="foot-links">
+        <a href="#skills">Skills</a><a href="#courses">Courses</a><a href="#books">Books</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

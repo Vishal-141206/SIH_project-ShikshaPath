@@ -123,27 +123,26 @@
     }
 
     // Duration Calculation
-   function calculateDaysLeft(startDate, examDate) {
-  const today = new Date();
-  const start = new Date(startDate);
-  const end = new Date(examDate);
+    function calculateDaysLeft(startDate, examDate) {
+      const today = new Date();
+      const start = new Date(startDate);
+      const end = new Date(examDate);
 
-  // Normalize to midnight
-  today.setHours(0, 0, 0, 0);
-  start.setHours(0, 0, 0, 0);
-  end.setHours(0, 0, 0, 0);
+      // Normalize to midnight
+      today.setHours(0, 0, 0, 0);
+      start.setHours(0, 0, 0, 0);
+      end.setHours(0, 0, 0, 0);
 
-  const oneDay = 1000 * 60 * 60 * 24;
+      const oneDay = 1000 * 60 * 60 * 24;
 
-  if (today < start) {
-    // Exam not started yet → show full study period
-    return Math.floor((end - start) / oneDay);
-  } else {
-    // Exam already started → countdown from today
-    return Math.floor((end - today) / oneDay);
-  }
-}
-
+      if (today < start) {
+        // Exam not started yet → show full study period
+        return Math.floor((end - start) / oneDay);
+      } else {
+        // Exam already started → countdown from today
+        return Math.floor((end - today) / oneDay);
+      }
+    }
 
     // Render Exams
     function renderExams() {
@@ -199,7 +198,7 @@
 
       if (!examName || !examDate || !startDate) return;
 
-      const duration = calculateDuration(startDate, examDate);
+      const duration = calculateDaysLeft(startDate, examDate); // ✅ Fixed line
       const newExam = {
         id: Date.now(),
         name: examName,

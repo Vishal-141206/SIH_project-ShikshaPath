@@ -149,11 +149,6 @@ def mentor():
 def tracker():
     return render_template("exam_tracker.html")
 
-@app.route("/resource")
-def resource():
-    return render_template("resource.html")
-
-
 
 @app.route("/quiz")
 def quiz():

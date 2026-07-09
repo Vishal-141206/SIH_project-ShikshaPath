@@ -3,7 +3,7 @@ import json
 import re
 
 # Path to your PDF
-pdf_path = "Q.pdf"
+pdf_path = "Qset.pdf"
 # Output JSON file
 json_path = "career_data.json"
 

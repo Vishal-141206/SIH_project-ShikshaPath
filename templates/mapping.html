@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Course → Career Mapping</title>
+<title>Course to Career Mapping</title>
 <style>
 :root {
   --accent: #0ea5e9;
@@ -12,7 +12,15 @@
 
 /* Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; overflow-x: hidden; }
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  overflow-x: hidden;
+  /* Allow vertical scrolling for the entire body */
+  overflow-y: auto; 
+}
 
 /* Body with light blue */
 body {
@@ -21,7 +29,6 @@ body {
   padding: 28px;
   color: #0f172a;
   position: relative;
-  overflow: hidden;
 }
 
 /* Bubble background */
@@ -54,9 +61,7 @@ header h1 {
   font-size: 36px;
   font-weight: 700;
   color: var(--accent);
-  text-shadow: 0 0 10px rgba(14,165,233,0.7),
-               0 0 20px rgba(14,165,233,0.5),
-               0 0 30px rgba(14,165,233,0.3);
+ 
 }
 header p {
   color: var(--muted);
@@ -147,12 +152,11 @@ header p {
 
 <header>
   <h1>Course → Career Mapping</h1>
-  <p>Click on a stream to see undergraduate degree, higher education, and career options</p>
+  <p>Explore every stream with clear paths from undergraduate degrees to higher studies and future careers — all in one place.</p>
 </header>
 
 <div class="container">
 
-  <!-- Health & Life Sciences -->
   <div class="card">
     <div class="card-header">
       <span>Health & Life Sciences</span>
@@ -188,7 +192,6 @@ header p {
     </div>
   </div>
 
-  <!-- STEM -->
   <div class="card">
     <div class="card-header">
       <span>STEM / Technical Sciences</span>
@@ -222,7 +225,6 @@ header p {
     </div>
   </div>
 
-  <!-- Commerce & Finance -->
   <div class="card">
     <div class="card-header">
       <span>Commerce & Finance</span>
@@ -257,7 +259,6 @@ header p {
     </div>
   </div>
 
-  <!-- Arts & Humanities -->
   <div class="card">
     <div class="card-header">
       <span>Arts & Humanities</span>
@@ -288,7 +289,6 @@ header p {
     </div>
   </div>
 
-  <!-- Interdisciplinary -->
   <div class="card">
     <div class="card-header">
       <span>Interdisciplinary & Professional</span>
@@ -320,7 +320,6 @@ header p {
     </div>
   </div>
 
-  <!-- Aviation & Defense -->
   <div class="card">
     <div class="card-header">
       <span>Aviation & Defense</span>
@@ -349,7 +348,6 @@ header p {
     </div>
   </div>
 
-  <!-- Vocational -->
   <div class="card">
     <div class="card-header">
       <span>Vocational & Skill-Based</span>

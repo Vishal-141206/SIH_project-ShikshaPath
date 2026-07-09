@@ -5,20 +5,124 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Industry Mentorship</title>
   <style>
-    :root{ --bg:#f4f7fb; --card:#ffffff; --accent:#0f62fe; --muted:#6b7280; }
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:var(--bg);color:#111}
-    .container{max-width:900px;margin:48px auto;padding:20px}
-    .card{background:var(--card);border-radius:12px;box-shadow:0 6px 18px rgba(15,22,39,0.06);padding:28px;margin-bottom:20px;display:flex;gap:20px;align-items:center}
-    .left{flex:1}
-    h1{margin:0 0 6px;font-size:1.6rem}
-    p.lead{margin:0 0 12px;color:var(--muted)}
-    .meta{display:flex;gap:12px;align-items:center;margin-bottom:12px}
-    .badge{background:rgba(15,98,254,0.1);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.9rem}
-    .action{display:flex;gap:10px}
-    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
-    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(15,98,254,0.15)}
-    .illustration{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#e8f0ff,#f6fbff);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700;font-size:2rem}
-    @media (max-width:640px){.card{flex-direction:column;align-items:flex-start}.illustration{width:80px;height:80px}}
+    :root {
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --accent:#0f62fe;
+      --muted:#6b7280;
+    }
+    body {
+      font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: #111;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 48px auto;
+      padding: 20px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(15,22,39,0.08);
+      padding: 24px;
+      margin-bottom: 22px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      transition: 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(15,22,39,0.12);
+    }
+    .left { flex: 1 }
+    h1 { margin: 0 0 6px; font-size: 1.8rem }
+    h2 { margin: 0; font-size: 1.3rem; }
+    p.lead { margin: 6px 0 10px; color: var(--muted); }
+    .meta { display: flex; gap: 12px; align-items: center; margin-bottom: 12px }
+    .badge {
+      background: rgba(15,98,254,0.1);
+      color: var(--accent);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .action { display: flex; gap: 10px; margin-top: 8px; }
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(15,98,254,0.3);
+    }
+    .illustration {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,#e8f0ff,#f6fbff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    /* Chat inside card */
+    .chat-box {
+      display: none;
+      width: 100%;
+      background: #fafafa;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      margin-top: 14px;
+      overflow: hidden;
+      flex-direction: column;
+    }
+    .chat-header {
+      background: var(--accent);
+      color: white;
+      padding: 8px 12px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .chat-messages {
+      padding: 10px;
+      height: 180px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+    }
+    .chat-input button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0 14px;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -28,78 +132,138 @@
         <h1>Industry Mentorship</h1>
         <div class="meta">
           <div class="badge">1000+ mentors</div>
-          <div style="color:var(--muted);font-size:0.95rem">Connect with professionals in your field of interest</div>
+          <div style="color:var(--muted);font-size:0.95rem">
+            Connect with professionals across multiple industries
+          </div>
         </div>
-        <p class="lead">Get guidance, networking opportunities, and practical career advice from experienced industry professionals across multiple fields and streams. Book sessions, ask questions, and grow your network.</p>
+        <p class="lead">Guidance, networking, and practical advice from experts. Book sessions, ask questions, and grow your career with industry mentors.</p>
       </div>
       <div class="illustration">💼</div>
     </section>
 
-    <!-- Fake Mentor Profiles (Multiple Streams) -->
+    <!-- Mentors from multiple streams -->
     <section class="card">
       <div class="illustration">👨‍💼</div>
       <div class="left">
         <h2>Rahul Sharma</h2>
         <p class="lead">Software Engineer at Infosys | Backend Development | IT & Computer Science</p>
+        <div class="action">
+          <button class="btn" onclick="toggleChat(this)">Message</button>
+          <button class="btn secondary">Voice Chat</button>
+        </div>
+        <div class="chat-box">
+          <div class="chat-header">Chat with Rahul Sharma</div>
+          <div class="chat-messages"></div>
+          <div class="chat-input">
+            <input type="text" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendMessage(this)" />
+            <button onclick="sendMessage(this)">Send</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="card">
-      <div class="illustration">👩‍💼</div>
+      <div class="illustration">👩‍⚕️</div>
       <div class="left">
-        <h2>Priya Singh</h2>
-        <p class="lead">Data Scientist at TCS | AI & Machine Learning | Mathematics & Statistics</p>
+        <h2>Dr. Aisha Khan</h2>
+        <p class="lead">Cardiologist at Apollo Hospitals | Medicine & Healthcare</p>
+        <div class="action">
+          <button class="btn" onclick="toggleChat(this)">Message</button>
+          <button class="btn secondary">Voice Chat</button>
+        </div>
+        <div class="chat-box">
+          <div class="chat-header">Chat with Dr. Aisha Khan</div>
+          <div class="chat-messages"></div>
+          <div class="chat-input">
+            <input type="text" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendMessage(this)" />
+            <button onclick="sendMessage(this)">Send</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="card">
-      <div class="illustration">👨‍💼</div>
+      <div class="illustration">⚖️</div>
       <div class="left">
-        <h2>Amit Verma</h2>
-        <p class="lead">Cybersecurity Analyst at Wipro | Ethical Hacking | Information Security</p>
+        <h2>Arjun Mehta</h2>
+        <p class="lead">Corporate Lawyer at Khaitan & Co | Legal Studies & Policy</p>
+        <div class="action">
+          <button class="btn" onclick="toggleChat(this)">Message</button>
+          <button class="btn secondary">Voice Chat</button>
+        </div>
+        <div class="chat-box">
+          <div class="chat-header">Chat with Arjun Mehta</div>
+          <div class="chat-messages"></div>
+          <div class="chat-input">
+            <input type="text" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendMessage(this)" />
+            <button onclick="sendMessage(this)">Send</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="card">
-      <div class="illustration">👩‍💼</div>
+      <div class="illustration">💹</div>
       <div class="left">
-        <h2>Neha Gupta</h2>
-        <p class="lead">Product Manager at Flipkart | E-commerce & Business Strategy | Management</p>
+        <h2>Sneha Reddy</h2>
+        <p class="lead">Financial Analyst at Goldman Sachs | Finance & Investments</p>
+        <div class="action">
+          <button class="btn" onclick="toggleChat(this)">Message</button>
+          <button class="btn secondary">Voice Chat</button>
+        </div>
+        <div class="chat-box">
+          <div class="chat-header">Chat with Sneha Reddy</div>
+          <div class="chat-messages"></div>
+          <div class="chat-input">
+            <input type="text" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendMessage(this)" />
+            <button onclick="sendMessage(this)">Send</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="card">
-      <div class="illustration">👨‍💼</div>
+      <div class="illustration">📰</div>
       <div class="left">
-        <h2>Rohit Mehra</h2>
-        <p class="lead">Cloud Architect at Amazon Web Services | Cloud Computing | Networking</p>
+        <h2>Ravi Deshmukh</h2>
+        <p class="lead">Senior Journalist at The Hindu | Media & Communication</p>
+        <div class="action">
+          <button class="btn" onclick="toggleChat(this)">Message</button>
+          <button class="btn secondary">Voice Chat</button>
+        </div>
+        <div class="chat-box">
+          <div class="chat-header">Chat with Ravi Deshmukh</div>
+          <div class="chat-messages"></div>
+          <div class="chat-input">
+            <input type="text" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendMessage(this)" />
+            <button onclick="sendMessage(this)">Send</button>
+          </div>
+        </div>
       </div>
     </section>
-
-    <section class="card">
-      <div class="illustration">👩‍💼</div>
-      <div class="left">
-        <h2>Ananya Iyer</h2>
-        <p class="lead">UX Designer at Zomato | Human-Centered Design | Arts & Design</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="illustration">👨‍🏫</div>
-      <div class="left">
-        <h2>Dr. Karan Patel</h2>
-        <p class="lead">Professor at IIT Delhi | Renewable Energy | Electrical Engineering</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="illustration">👩‍🔬</div>
-      <div class="left">
-        <h2>Simran Kaur</h2>
-        <p class="lead">Biotechnologist at Biocon | Genetics & Research | Life Sciences</p>
-      </div>
-    </section>
-
   </main>
+
+  <script>
+    function toggleChat(btn) {
+      const card = btn.closest('.left');
+      const chatBox = card.querySelector('.chat-box');
+      chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function sendMessage(el) {
+      const card = el.closest('.left');
+      const input = card.querySelector('.chat-input input');
+      const messages = card.querySelector('.chat-messages');
+      const msg = input.value.trim();
+      if (msg) {
+        const div = document.createElement('div');
+        div.textContent = "You: " + msg;
+        div.style.marginBottom = "6px";
+        messages.appendChild(div);
+        input.value = "";
+        messages.scrollTop = messages.scrollHeight;
+      }
+    }
+  </script>
 </body>
 </html>

@@ -15,6 +15,14 @@
   --color-text-dim: #94a3b8; /* slate-400 */
 }
 
+.logo-img {
+    height: 70px;   /* adjust as needed */
+    width: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+    
+}
+
 /* Background Effects */
 .background-layer::before {
   background: radial-gradient(circle, var(--color-primary-dark) 0%, transparent 70%);
@@ -45,7 +53,7 @@ nav a:hover { color: var(--color-primary-light); }
 }
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--color-primary-dark), var(--color-accent-light));
-  box-shadow: 0 6px 25px rgba(0, 153, 255, 0.5);
+  box-shadow: 0 6px 25px rgb(0, 153, 255);
 }
 .btn-secondary {
   background: transparent;
@@ -208,14 +216,14 @@ body {
 
 /* Navigation */
 .nav {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(67, 170, 244, 0.122);
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
     position: sticky;
     top: 0;
     z-index: 100;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(88, 209, 236, 0.495);
 }
 
 .nav-container {
@@ -234,21 +242,10 @@ body {
     cursor: pointer;
 }
 
-.nav-logo {
-    width: 2.5rem;
-    height: 2.5rem;
-    background: linear-gradient(135deg, #00c8ff, #41a3ff,blue);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
 
 .nav-brand:hover .nav-logo {
-    transform: rotate(12deg) scale(1.1);
-}
+      transform:scale(1.2);
+    filter: brightness(1.5) contrast(0.9);}
 
 .nav-icon {
     color: white;
@@ -277,7 +274,7 @@ body {
 }
 
 .nav-link {
-    color: #4a5568;
+    color: #000000;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -296,7 +293,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #667eea;
+    color: #0088ff;
     transform: translateY(-2px);
 }
 
@@ -342,7 +339,7 @@ body {
     right: -2px;
     width: 8px;
     height: 8px;
-    background: #f093fb;
+    background: #ff0033;
     border-radius: 50%;
     animation: aiPulse 1.5s ease-in-out infinite;
 }
@@ -407,16 +404,16 @@ body {
 }
 
 .btn-outline {
-    border: 2px solid rgba(0, 238, 255, 0.3);
+    border: 2px solid rgba(0, 21, 23, 0.903);
     background: transparent;
     color: #1a1f36;
 }
 
 .btn-outline:hover {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: #5cd2f6;
+    background: linear-gradient(rgb(0, 229, 255),rgb(51, 121, 240));
+    border-color: #011f29;
     transform: translateY(-2px);
-}
+}x
 
 .btn-lg {
     font-size: 1.1rem;

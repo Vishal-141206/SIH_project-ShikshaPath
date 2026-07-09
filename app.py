@@ -5,7 +5,9 @@ import logging
 import os
 import gdown
 import json
+import re
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from rapidfuzz import fuzz, process   # ✅ added for fuzzy matching
 
 logging.basicConfig(level=logging.INFO)
 
@@ -50,7 +52,7 @@ llm = LocalLLM()
 
 # ========== LOAD CAREER DATA JSON ==========
 CAREER_DATA_FILE = "career_data.json"
-career_data = {}
+career_data = []
 
 if os.path.exists(CAREER_DATA_FILE):
     with open(CAREER_DATA_FILE, "r", encoding="utf-8") as f:
@@ -143,6 +145,16 @@ def college_map():
 def mentor():
     return render_template("mentor.html")
 
+@app.route("/exam_tracker")
+def tracker():
+    return render_template("exam_tracker.html")
+
+@app.route("/resource")
+def resource():
+    return render_template("resource.html")
+
+
+
 @app.route("/quiz")
 def quiz():
     return render_template("quiz.html", questions_json=questions)
@@ -195,33 +207,40 @@ def predict():
         return jsonify({'error': 'Internal server error', 'details': str(e)}), 500
 
 
+# ========== FIXED GET_ANSWER ROUTE ==========
+def clean_text(text):
+    return re.sub(r"[^\w\s]", "", text.lower().strip())
+
 @app.route("/get_answer", methods=["POST"])
 def get_answer():
-    user_question = request.json.get("question")
+    user_question = request.json.get("question", "")
+    if not user_question:
+        return jsonify({"answer": "Please ask a valid question."}), 400
 
-    # Convert JSON into text context
-    context = ""
-    if "questions" in career_data:
-        for item in career_data["questions"]:
-            q = item.get("q", "")
-            a = item.get("a", "")
-            context += f"Q: {q} | A: {a}\n"
+    if not career_data:
+        return jsonify({"answer": "Career data is not available."}), 500
 
-    # Build prompt
-    prompt = f"Here is a dataset:\n{context}\n\nNow answer this question:\n{user_question}"
+    # Prepare list of questions
+    questions = [item["question"] for item in career_data]
 
-    answer = llm.get_response(prompt)
+    # Fuzzy match
+    best_match, score, idx = process.extractOne(
+        clean_text(user_question),
+        [clean_text(q) for q in questions],
+        scorer=fuzz.token_sort_ratio
+    )
+
+    if score > 70:  # similarity threshold
+        answer = career_data[idx]["answer"]
+    else:
+        answer = "Sorry, I don’t have an exact answer for that."
+
     return jsonify({"answer": answer})
 
 
 # ========== MAIN ==========
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
-
-
 
 
 

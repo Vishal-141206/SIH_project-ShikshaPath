@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Countdown Tracker</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #88c3fb, #81fefc);
+      overflow-y: auto;
+    }
+    .bubbles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .bubble {
+      position: absolute;
+      bottom: -150px;
+      border-radius: 50%;
+      animation: rise linear infinite;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0) scale(0.5); opacity: 0; }
+      50% { opacity: 0.4; }
+      100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen items-center p-4">
+
+  <!-- Bubbly Background -->
+  <div class="bubbles" id="bubbles-container"></div>
+
+  <!-- Main Container -->
+  <div class="bg-white bg-opacity-80 backdrop-blur-md p-8 rounded-3xl shadow-2xl w-full max-w-2xl mt-8 mb-12 relative z-10 border border-[#d1e9ff]">
+    <h1 class="text-4xl font-extrabold text-[#0ea5e9] text-center mb-2 drop-shadow-lg">EXAM COUNTDOWN</h1>
+    <p class="text-center text-[#334155] mb-8">Stay motivated and on track for your exams.</p>
+    
+    <!-- Add Exam Form -->
+    <form id="add-exam-form" class="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
+      <input type="text" id="EXAM-NAME" placeholder="ENTER EXAM NAME (e.g., JEE Main)" class="flex-1 min-w-[200px] p-4 rounded-xl border-2 border-[#93c5fd] bg-[#f0f9ff] text-black placeholder-[#6b7280] focus:ring-2 focus:ring-[#0ea5e9] focus:border-[#0ea5e9] transition duration-200" required>
+      
+      <div class="flex-1 flex flex-col gap-1 min-w-[160px]">
+        <label for="start-date" class="text-sm font-medium text-[#0ea5e9]">START DATE</label>
+        <input type="date" id="start-date" class="p-4 rounded-xl border-2 border-[#93c5fd] bg-[#f0f9ff] text-black focus:ring-2 focus:ring-[#0ea5e9] focus:border-[#0ea5e9] transition duration-200" required>
+      </div>
+      
+      <div class="flex-1 flex flex-col gap-1 min-w-[160px]">
+        <label for="exam-date" class="text-sm font-medium text-[#0ea5e9]">EXAM DATE</label>
+        <input type="date" id="exam-date" class="p-4 rounded-xl border-2 border-[#93c5fd] bg-[#f0f9ff] text-black focus:ring-2 focus:ring-[#0ea5e9] focus:border-[#0ea5e9] transition duration-200" required>
+      </div>
+      
+      <button type="submit" class="bg-gradient-to-r from-[#22d3ee] to-[#0ea5e9] text-white font-extrabold p-4 rounded-xl hover:from-[#0ea5e9] hover:to-[#22d3ee] transition duration-200 shadow-lg sm:mt-6 transform hover:scale-105">Add Exam</button>
+    </form>
+
+    <!-- Exam List -->
+    <div id="exam-list" class="flex flex-col gap-6">
+      <!-- Exams will be rendered here -->
+      <div class="p-6 text-center text-[#64748b] border-2 border-dashed rounded-xl border-[#93c5fd] bg-[#e0f2fe]">No exams added yet.</div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('add-exam-form');
+    const examNameInput = document.getElementById('EXAM-NAME');
+    const startDateInput = document.getElementById('start-date');
+    const examDateInput = document.getElementById('exam-date');
+    const examList = document.getElementById('exam-list');
+    const bubblesContainer = document.getElementById('bubbles-container');
+    
+    let exams = JSON.parse(localStorage.getItem('exams')) || [];
+    let countdownIntervals = {};
+    const bubbleColors = ['rgba(147, 197, 253, 0.4)', 'rgba(125, 211, 252, 0.4)', 'rgba(59, 130, 246, 0.4)', 'rgba(191, 219, 254, 0.4)'];
+    
+    // Function to create a dynamic bubble
+    function createBubble() {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      const size = Math.random() * 60 + 20;
+      const left = Math.random() * 100;
+      const duration = Math.random() * 20 + 20;
+      const color = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
+      
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${left}%`;
+      bubble.style.animationDuration = `${duration}s`;
+      bubble.style.background = color;
+      
+      bubblesContainer.appendChild(bubble);
+      
+      setTimeout(() => {
+        bubble.remove();
+      }, duration * 1000);
+    }
+    setInterval(createBubble, 1500);
+
+    // Save exams to localStorage
+    function saveExams() {
+      localStorage.setItem('exams', JSON.stringify(exams));
+    }
+
+    // Countdown function -> Only Days Left
+    function updateCountdownDisplay(exam, countdownElement) {
+      const now = new Date();
+      const examDate = new Date(exam.date);
+      const timeRemaining = examDate - now;
+
+      if (timeRemaining <= 0) {
+        countdownElement.textContent = "0 days left";
+        clearInterval(countdownIntervals[exam.id]);
+      } else {
+        const days = Math.ceil(timeRemaining / (1000 * 60 * 60 * 24));
+        countdownElement.textContent = `${days} days left`;
+      }
+    }
+
+    // Duration Calculation
+    function calculateDaysLeft(startDate, examDate) {
+      const today = new Date();
+      const start = new Date(startDate);
+      const end = new Date(examDate);
+
+      // Normalize to midnight
+      today.setHours(0, 0, 0, 0);
+      start.setHours(0, 0, 0, 0);
+      end.setHours(0, 0, 0, 0);
+
+      const oneDay = 1000 * 60 * 60 * 24;
+
+      if (today < start) {
+        // Exam not started yet → show full study period
+        return Math.floor((end - start) / oneDay);
+      } else {
+        // Exam already started → countdown from today
+        return Math.floor((end - today) / oneDay);
+      }
+    }
+
+    // Render Exams
+    function renderExams() {
+      examList.innerHTML = '';
+      for (const id in countdownIntervals) {
+        clearInterval(countdownIntervals[id]);
+      }
+      countdownIntervals = {};
+
+      if (exams.length === 0) {
+        examList.innerHTML = `<div class="p-6 text-center text-[#64748b] border-2 border-dashed rounded-xl border-[#93c5fd] bg-[#e0f2fe]">No exams added yet.</div>`;
+        return;
+      }
+
+      exams.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      exams.forEach(exam => {
+        const examDiv = document.createElement('div');
+        examDiv.className = 'flex flex-col sm:flex-row justify-between items-start sm:items-center bg-[#f0f9ff] p-6 rounded-xl shadow-md border-t-4 border-[#0ea5e9] transition-all duration-300 transform hover:scale-[1.02] hover:border-[#0284c7] min-h-[120px]';
+        examDiv.innerHTML = `
+          <div class="flex-1 mb-2 sm:mb-0">
+            <h2 class="text-xl font-bold text-[#0ea5e9]">${exam.name}</h2>
+            <p class="text-sm text-[#334155]">Exam Date: ${exam.date}</p>
+            <p class="text-sm text-[#334155]">Start Date: ${exam.startDate}</p>
+            <p class="text-sm text-[#334155] mt-1 font-semibold">Total Study Period: ${exam.duration} days</p>
+          </div>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <p class="countdown-text text-2xl font-extrabold text-[#0ea5e9]" data-exam-id="${exam.id}"></p>
+            <button class="remove-btn bg-red-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200 text-sm transform hover:scale-105">Remove</button>
+          </div>
+        `;
+        
+        examDiv.querySelector('.remove-btn').addEventListener('click', () => {
+          removeExam(exam.id);
+        });
+
+        examList.appendChild(examDiv);
+
+        const countdownElement = examDiv.querySelector('.countdown-text');
+        updateCountdownDisplay(exam, countdownElement);
+        countdownIntervals[exam.id] = setInterval(() => {
+          updateCountdownDisplay(exam, countdownElement);
+        }, 1000);
+      });
+    }
+
+    // Add Exam
+    function addExam(e) {
+      e.preventDefault();
+      const examName = examNameInput.value.trim();
+      const examDate = examDateInput.value;
+      const startDate = startDateInput.value;
+
+      if (!examName || !examDate || !startDate) return;
+
+      const duration = calculateDaysLeft(startDate, examDate); // ✅ Fixed line
+      const newExam = {
+        id: Date.now(),
+        name: examName,
+        date: examDate,
+        startDate: startDate,
+        duration: duration
+      };
+
+      exams.push(newExam);
+      saveExams();
+      form.reset();
+      renderExams();
+    }
+
+    // Remove Exam
+    function removeExam(id) {
+      exams = exams.filter(exam => exam.id !== id);
+      saveExams();
+      if (countdownIntervals[id]) {
+        clearInterval(countdownIntervals[id]);
+        delete countdownIntervals[id];
+      }
+      renderExams();
+    }
+
+    // Event listener
+    form.addEventListener('submit', addExam);
+
+    // Initial render
+    renderExams();
+  </script>
+
+</body>
+</html>

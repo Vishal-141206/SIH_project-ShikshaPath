@@ -37,6 +37,7 @@ python-dateutil==2.9.0.post0
 pytz==2025.2
 pyyaml==6.0.2
 packaging==25.0
+rapidfuzz
 
 # Optional visualization (if using in frontend)
 matplotlib==3.10.6

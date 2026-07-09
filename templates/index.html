@@ -35,37 +35,28 @@
         </div>
 
         <!-- Navigation -->
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-brand">
-                    <div class="nav-logo">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
-                            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-.64-.64a3 3 0 0 0-2.121-.879H3.5A2.5 2.5 0 0 1 1 10.044v-.888a2.5 2.5 0 0 1 2.5-2.5h1.239a3 3 0 0 0 2.121-.879l.64-.64A2 2 0 0 0 8.937 3.5H9.5"/>
-                            <path d="M14.063 8.5A2 2 0 0 0 15.5 9.937l.64.64a3 3 0 0 0 2.121.879H20.5A2.5 2.5 0 0 1 23 13.956v.888a2.5 2.5 0 0 1-2.5 2.5h-1.239a3 3 0 0 0-2.121.879l-.64.64A2 2 0 0 0 15.063 20.5H14.5"/>
-                            <path d="M6 12h12"/>
-                        </svg>
-                    </div>
-                    <span class="nav-title">ShikshaPath</span>
-                </div>
-                <div class="nav-menu">
-                    <a href="#features" class="nav-link">Features</a>
-                    <a href="#careers" class="nav-link">Career Paths</a>
-                    <a href="#testimonials" class="nav-link">Success Stories</a>
-                    <div class="ai-assistant-nav" title="AI Career Assistant">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai-assistant-icon">
-                            <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 5.16-1 9-5.45 9-11V7l-10-5z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 9v6"/>
-                            <path d="M9 12h6"/>
-                        </svg>
-                        <span class="ai-pulse"></span>
-                    </div>
-                    <button class="btn btn-outline">Sign In</button>
-                    <button class="btn btn-outline">Login</button>
-
-                </div>
+<nav class="nav">
+    <div class="nav-container">
+        <div class="nav-brand">
+            
+            
+            <div class="nav-logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" 
+                     alt="ShikshaPath Logo" 
+                     class="logo-img">
             </div>
-        </nav>
+            <span class="nav-title">ShikshaPath</span>
+        </div>
+        <div class="nav-menu">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#careers" class="nav-link">Career Paths</a>
+            <a href="#testimonials" class="nav-link">Success Stories</a>
+        
+            <button class="btn btn-outline">Sign In</button>
+            <button class="btn btn-outline">Login</button>
+        </div>
+    </div>
+</nav>
 
         <!-- Hero Section -->
         <section class="hero">
@@ -264,6 +255,48 @@
           Discover the right college for your future, tailored to your goals, location, and interests.
         </p>
       </div>
+      <!-- Feature 5 -->
+      <div class="feature-card card-interactive hover-lift" onclick="window.location.href='/exam_tracker'">
+        <div class="feature-icon animate-float">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <path d="M7.5 4.21l4.5 2.6 4.5-2.6"/>
+            <path d="M7.5 19.79V14.6L3 12"/>
+            <path d="M21 12l-4.5 2.6v5.19"/>
+            <path d="M3.27 6.96L12 12.01l8.73-5.05"/>
+            <path d="M12 22.08V12"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Exam Tracker</h3>
+        <div class="feature-benefit">Tack your exam</div>
+        <p class="feature-description">
+          Get clear roadmaps showing the steps needed to reach your dream career, including skills and experience required.
+        </p>
+      </div>
+      <!-- Feature 6 -->
+      <div class="feature-card card-interactive hover-lift" onclick="window.location.href='/resource'">
+        <div class="feature-icon animate-float">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2c2.5 3 2.5 7 0 10c-2.5 3-2.5 7 0 10"/>
+            <path d="M5 4.5c4 1.5 4 8 0 9.5"/> 
+            <path d="M19 4.5c-4 1.5-4 8 0 9.5"/>
+            <path d="M4.93 4.93a10 10 0 0 0 14.14 0"/> 
+            <path d="M4.93 19.07a10 10 0 0 1 14.14 0"/> 
+            <circle cx="12" cy="12" r="11" stroke-dasharray="5 5" stroke-dashoffset="0"> 
+              <animateTransform attributeName="transform" type="rotate" values="0 12 12;360 12 12" dur="6s" repeatCount="indefinite"/> 
+            </circle> 
+          </svg>
+        </div>
+        <h3 class="feature-title">Resource Hub</h3>
+        <div class="feature-benefit">Find Government  resource.</div>
+        <p class="feature-description">
+          Discover the skill , books , mini courses  for learning new things to make bright future.
+        </p>
+      </div>
+      
 
     </div>
   </div>
@@ -724,7 +757,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 CareerPath. All rights reserved. Powered by BitCoders 🚀</p>
+                    <p>&copy; 2025 ShikshaPath. All rights reserved. Powered by LitCoders 🚀</p>
                 </div>
             </div>
         </footer>
@@ -734,7 +767,7 @@
 
     <script>
         // Typewriter Effect
-        const words = ["Dream Career", "Perfect Match", "Future Success", "Career Growth"];
+        const words = ["Dream Career", "Success Path", "Future Success", "Career Growth","True Potential","Inner Strength"];
         let currentWordIndex = 0;
         let currentCharIndex = 0;
         let isDeleting = false;
@@ -858,25 +891,7 @@
             });
         });
 
-        // AI Character Messages
-        const aiMessages = [
-            "Hi! I'm your AI career assistant! 🚀",
-            "Ready to discover your dream career? ✨",
-            "Let's analyze your skills together! 🔍",
-            "Your perfect career awaits! 💫",
-            "AI-powered guidance at your service! 🤖"
-        ];
-
-        function rotateAIMessages() {
-            const messageElement = document.getElementById('ai-message');
-            if (messageElement) {
-                let currentIndex = 0;
-                setInterval(() => {
-                    messageElement.textContent = aiMessages[currentIndex];
-                    currentIndex = (currentIndex + 1) % aiMessages.length;
-                }, 4000);
-            }
-        }
+        
 
         // Initialize animations and effects
         document.addEventListener('DOMContentLoaded', function() {
